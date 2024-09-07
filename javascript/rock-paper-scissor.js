@@ -74,11 +74,34 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
     else {
-        console.log("Tie, play again");
-        alert("Tie, play again");
+        console.log("Tie!" + "\nYou Chose: " + humanChoice + "\nComputer Chose: " + computerChoice);
+        alert("Tie!" + "\nYou Chose: " + humanChoice + "\nComputer Chose: " + computerChoice);
     }
-    console.log("Your Score: " + humanScore);
-    console.log("Computer Score: " + computerScore);
-    alert("Your Score: " + humanScore);
-    alert("Computer Score: " + computerScore);
+    console.log("Your Score: "+ humanScore + " | Computer Score: " + computerScore);
+    alert("Your Score: " + humanScore + " \nComputer Score: " + computerScore);
+}
+
+function playGame() {
+    for (let i = 1; i<=5; i++) {
+        alert("Round: " + i)
+        playRound(getHumanChoice(), getComputerChoice());
+        if (i==5) {
+            console.log("Five rounds completed.");
+            if (humanScore>computerScore) {
+                console.log("Congratulations, You won the game!");
+                alert("Congratulations, You won the game!");
+                console.log("Your Score: "+ humanScore + " | Computer Score: " + computerScore);
+            }
+            else if (computerScore > humanScore) {
+                console.log("You lose, Computer is more smarter than you!")
+                alert("You lose, Computer is more smarter than you!")
+                console.log("Your Score: "+ humanScore + " | Computer Score: " + computerScore);
+            }
+            else {
+                console.log("Match tied, both won equal rounds!");
+                alert("Match tied, both won equal rounds!");
+                console.log("Your Score: "+ humanScore + " | Computer Score: " + computerScore);
+            }
+        }
+    }
 }
