@@ -17,32 +17,31 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    while (true) {
 
-        let input = prompt("Enter your choice (rock, paper or scissor)");
-        input = input.toLowerCase();
+        let buttons = document.querySelectorAll("button");
+        let input = document.querySelector("#input");
 
-        if (input == "rock") {
-            console.log("rock");
-            return "rock";
-        }
-        else if (input == "paper") {
-            console.log("paper");
-            return "paper";
-        }
-        else if (input == "scissor") {
-            console.log("scissor");
-            return "scissor";
-        }
-        else {
-            console.log("Please input valid choice (rock, paper or scissor");
-            alert("Please input valid choice (rock, paper or scissor)");
-        }
-    }
-}
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+            let target = e.target;
+            switch(target.id) {
+                case 'rock':
+                input.textContent = "You Selected Rock."
+                break;
+                case 'paper':
+                input.textContent = "You Selected Paper."
+                break;
+                case 'scissor':
+                input.textContent = "You Selected Scissor."
+                break;
+            }
+        });
+        });
 
-function playRound(humanChoice, computerChoice) {
+
+
+
+ function playRound(humanChoice, computerChoice) {
     if (humanChoice == "paper" && computerChoice == "rock") {
         console.log("You win! Paper beats Rock");
         alert("You win! Paper beats Rock");
@@ -81,7 +80,7 @@ function playRound(humanChoice, computerChoice) {
     alert("Your Score: " + humanScore + " \nComputer Score: " + computerScore);
 }
 
-function playGame() {
+/*function playGame() {
     for (let i = 1; i<=5; i++) {
         alert("Round: " + i)
         playRound(getHumanChoice(), getComputerChoice());
@@ -104,4 +103,4 @@ function playGame() {
             }
         }
     }
-}
+}*/
